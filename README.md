@@ -5,6 +5,8 @@ A comprehensive collection of tools, scripts, and resources for Microsoft Defend
 ## Contents
 
 - [Defender for Servers](#defender-for-servers)
+  - [SQL Server Antivirus Exclusions](#sql-server-antivirus-exclusions)
+  - [Exchange Server Antivirus Exclusions](#exchange-server-antivirus-exclusions)
 
 
 ## Defender for Servers
@@ -60,6 +62,49 @@ Located in the `/defender` directory, these scripts help automate the configurat
 - Perform regular audits of applied exclusions
 - Document any modifications to exclusion lists
 - Monitor excluded paths for security events
+
+### Exchange Server Antivirus Exclusions
+
+Located in the `/defender` directory, this script helps identify and document required Windows Defender exclusions for Microsoft Exchange Server environments.
+
+#### Available Scripts
+
+1. **ExchangeAVExclusionFind.ps1**
+   - Performs comprehensive Exchange Server installation scanning
+   - Discovers critical paths, processes, and file extensions
+   - Identifies Database Availability Group (DAG) components
+   - Generates structured JSON output for configuration
+
+#### Key Features
+
+- Automatic Exchange installation detection
+- Complete process discovery
+- File extension pattern matching
+- DAG component identification
+- Unified Messaging path detection
+- Transport role configuration scanning
+- IIS component detection
+
+#### Prerequisites
+
+- Windows PowerShell 5.1 or PowerShell 7+
+- Administrative privileges on the Exchange Server
+- Exchange Server 2016 or later installed
+
+#### Quick Start
+
+1. Run on an Exchange Server:
+```powershell
+.\ExchangeAVExclusionFind.ps1
+```
+
+2. Review the generated `Exchange_AV_Exclusions.json` file
+3. Use the findings to configure your antivirus exclusions
+
+#### Output
+
+- `Exchange_AV_Exclusions.json`: Contains discovered paths, processes, and recommended exclusions
+- Console output with real-time discovery information
 
 ## Contributing
 
